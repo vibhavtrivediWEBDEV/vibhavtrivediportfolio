@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Acme&family=Baloo+Bhai+2&family=Baloo+Bhaina+2:wght@400;500&family=Comforter+Brush&family=Estonia&family=Poppins:wght@100;300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>blog</title>
+</head>
+
+<body>
+    <section class="showcase">
+        <div class="loading-text"></div>
+        <header>
+            <nav>
+                <a href="index.html"><img src="logo2-removebg-preview.png" alt=""></a>
+                <div class="nav-links" id="navLinks">
+                    <i class="fa fa-window-close" onclick="hidemenu()"></i>
+                    <ul>
+                        <li><a href="index.html">home</a></li>
+                        <li><a href="about.html">about</a></li>
+                        <li><a href="gallery.html">gallery</a></li>
+                        <li><a href="blog.html">blog</a></li>
+                        <li><a href="">join us</a></li>
+                    </ul>
+                </div>
+                <i class="fa fa-bars" onclick="showmenu()"></i>
+            </nav>
+        </header>
+
+        <video src="pexels.mp4" class="vedio" muted loop autoplay></video>
+
+        <div class="overlay"></div>
+        <div class="text">
+            <h1 data-aos="zoom-in-up" data-aos-offset="100" data-aos-delay="100" class="bold">never stop</h1>
+            <h2  data-aos="zoom-in-up" data-aos-offset="100" data-aos-delay="300" class="medium">exploring the world</h2>
+            <p data-aos="zoom-in-up" data-aos-offset="100" data-aos-delay="600">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus <br>sunt tempora molestias facere alan walker vibhav
+                pariatur <br>blanditiis rerum aliquid doloremque odio fugiat.</p>
+            <a data-aos="zoom-in-up" data-aos-offset="100" data-aos-delay="800" href="" class="hero-btn visit">visit </a>
+        </div>
+
+        <ul class="social icon">
+            <i class="fa fa-facebook "></i>
+            <i class="fa fa-instagram "></i>
+            <i class="fa fa-twitter "></i>
+            <i class="fa fa-linkedin "></i>
+            <i class="fa fa-skype "></i>
+        </ul>
+    </section>
+
+    <!-- ------- -->
+
+   
+
+
+
+
+
+
+
+
+
+    <script defer>
+
+        var navLinks = document.getElementById("navLinks")
+
+        function showmenu() {
+            navLinks.style.right = "0";
+        }
+        function hidemenu() {
+            navLinks.style.right = "-200px";
+        }
+    </script>
+
+<script  defer>
+    const loadtext=document.querySelector(".loading-text")
+    const bg=document.querySelector(".vedio")
+       
+    let load=0;
+
+    let int = setInterval(blurring,30)
+
+    function blurring(){
+        load++;
+      
+        if ( load > 99 ){
+            clearInterval(int)
+        }
+            loadtext.innerText=`${load}%`
+            loadtext.style.opacity = scale(load,0,100,1,0)
+            bg.style.filter = `blur(${scale(load,0,100,30,0)}px)`
+
+
+    }
+
+  const  scale = (number, inMin, inMax, outMin, outMax) => {
+return (number - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+}  
+</script>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+      </script>
+</body>
+
+</html>

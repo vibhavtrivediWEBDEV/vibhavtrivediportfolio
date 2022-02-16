@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="game.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>game</title>
+</head>
+<body>
+    <div class="container ">
+        <div class="loading-text">0%</div>
+  
+        <h3 data-aos="zoom-in-down" data-aos-offset="100" data-aos-delay="900" ><b  class="enter">Enter</b> all of the choices divided by a comma <span> ( ',')  </span> 
+        <br>Press enter when your're done !</h3>
+        <textarea  name="" id="textarea" placeholder="enter your"></textarea>
+
+        <div data-aos="zoom-in-up" data-aos-offset="100" data-aos-delay="900" class="tags" id="tags">
+            <span class="tag hero-btn">First</span>
+            <span  class="tag hero-btn green">Second</span>
+            <span class="tag hero-btn lightblue" >Third</span>
+        </div>
+        
+    </div>
+
+
+<!-- -------------------------------- -->
+
+
+
+<script >
+
+   const tagsel = document.getElementById("tags")
+   const textarea = document.getElementById("textarea")
+
+
+    textarea.focus();
+
+    textarea.addEventListener("keyup",(e) =>{
+        createTags(e.target.value)
+
+      if(e.key==='enter'){
+          
+        setTimeout(() => {
+            e.target.value =''
+        },10)
+
+        randomSelect()
+      }
+
+    })
+   
+function createTags(input){
+   const tags = input.split(`,`).filter(tag  => tag.trim()
+   !=='').map(tag => tag.trim())
+
+   tagsel.innerHTML = ''
+
+   tags.forEach(tag => {
+       const tagsel = document.createElement('span')
+       tagsel.classList.add('tag')
+       tagsel.innerText = tag
+       tagsel.appendChild("tagsel")
+       
+   })
+}
+ function randomSelect(){
+      console.log (123)
+ }
+
+
+
+
+
+    
+</script>
+
+    <script  defer>
+        const loadtext=document.querySelector(".loading-text")
+        const bg=document.querySelector('body')
+           
+        let load=0;
+
+        let int = setInterval(blurring,50)
+
+        function blurring(){
+            load++;
+          
+            if ( load > 99 ){
+                clearInterval(int)
+            }
+                loadtext.innerText=`${load}%`
+                loadtext.style.opacity = scale(load,0,100,1,0)
+                bg.style.filter = `blur(${scale(load,0,100,30,0)}px)`
+
+
+        }
+
+      const  scale = (number, inMin, inMax, outMin, outMax) => {
+    return (number - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+}  
+    </script>
+
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+  </script>
+</body>
+</body>
+</html>
